@@ -14,12 +14,13 @@ class StudentTicket(Ticket):
         return super().price()*0.5
 
 class GroupTicket(Ticket):
-    def __init__(self,name,base__price,people):
+    def __init__(self,name,base_price,people):
         super().__init__(name,base_price)
         self.__people = people
 
-        def price(self):
-            return super().price() * self.__people * 0.8
+    def price(self):
+        return super().price() * self.__people * 0.8
         
-    
-
+student = StudentTicket("Museum",150)
+group = GroupTicket("Zoo",300,4)
+print(student.get_name(),group.price())
